@@ -30,3 +30,24 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view()),
     path('', include('core.urls')),
 ]
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("""
+    <html>
+        <head>
+            <title>Mvita Comprehensive Health Centre</title>
+        </head>
+        <body style="text-align:center;font-family:Arial;">
+            <img src="/static/logo.png" width="150"/><br><br>
+            <h1>Welcome to Mvita Comprehensive Health Centre</h1>
+            <p>Hospital Management System is running successfully.</p>
+        </body>
+    </html>
+    """)
+
+from django.urls import path
+
+urlpatterns = [
+    path('', home),
+]
