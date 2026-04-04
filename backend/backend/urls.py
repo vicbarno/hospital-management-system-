@@ -36,7 +36,7 @@ def home(request):
     return HttpResponse("""
     <html>
         <head>
-            <title>Mvita Comprehensive Health Centre</title>
+            <title>mvita Comprehensive Health Centre</title>
         </head>
         <body style="text-align:center;font-family:Arial;">
             <img src="/static/logo.png" width="150"/><br><br>
