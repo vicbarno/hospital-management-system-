@@ -9,7 +9,7 @@ Function views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+    2. Add a URL to urlpatterns:  path('home/', Home.as_view())
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
@@ -17,37 +17,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from patients.views import PatientViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+from appointments.views import AppointmentViewSet, summary_view
+from patients.views import PatientViewSet
+from users.views import CurrentUserView, DoctorListView, UserViewSet
 
 router = DefaultRouter()
 router.register(r'patients', PatientViewSet)
+router.register(r'appointments', AppointmentViewSet)
+router.register(r'users', UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/token/', TokenObtainPairView.as_view()),
-    path('api/token/refresh/', TokenRefreshView.as_view()),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/users/me/', CurrentUserView.as_view(), name='current_user'),
+    path('api/users/doctors/', DoctorListView.as_view(), name='doctor_list'),
+    path('api/reports/summary/', summary_view, name='reports_summary'),
     path('', include('core.urls')),
-]
-from django.http import HttpResponse
-
-def home(request):
-    return HttpResponse("""
-    <html>
-        <head>
-            <title>mvita Comprehensive Health Centre</title>
-        </head>
-        <body style="text-align:center;font-family:Arial;">
-            <img src="/static/logo.png" width="150"/><br><br>
-            <h1>Welcome to Mvita Comprehensive Health Centre</h1>
-            <p>Hospital Management System is running successfully.</p>
-        </body>
-    </html>
-    """)
-
-from django.urls import path
-
-urlpatterns = [
-    path('', home),
 ]
