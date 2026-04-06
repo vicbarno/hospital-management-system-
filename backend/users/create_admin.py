@@ -9,11 +9,15 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-if not User.objects.filter(username='admin').exists():
+ADMIN_USERNAME = 'admin'
+ADMIN_EMAIL = 'kiptoobarno@gmail.com'
+ADMIN_PASSWORD = 'admin123'
+
+if not User.objects.filter(username=ADMIN_USERNAME).exists():
     User.objects.create_superuser(
-        username='admin',
-        email='kiptoobarno@gmail.com',
-        password='Admin123!'
+        username=ADMIN_USERNAME,
+        email=ADMIN_EMAIL,
+        password=ADMIN_PASSWORD,
     )
     print("✅ Admin user created")
 else:
