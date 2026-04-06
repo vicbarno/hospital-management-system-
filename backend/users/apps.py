@@ -24,5 +24,5 @@ class UsersConfig(AppConfig):
     name = 'users'
 
     def ready(self):
-        post_migrate.connect(create_default_admin, sender=self)
+        post_migrate.connect(create_default_admin, sender='users')
 
