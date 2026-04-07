@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    display: flex;
+}
+
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #1e2a38;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #2c7be5;
+}
+
+.logo {
+    width: 80px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.main {
+    flex: 1;
+    background: #f4f6f8;
+}
+
+.topbar {
+    background: white;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.content {
+    padding: 20px;
+}
