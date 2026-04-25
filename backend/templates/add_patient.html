@@ -5,10 +5,60 @@
 
 <form method="POST">
     {% csrf_token %}
+    <h3>Patient Identification</h3>
     <input type="text" name="first_name" placeholder="First Name"><br>
     <input type="text" name="last_name" placeholder="Last Name"><br>
-    <input type="text" name="phone" placeholder="Phone"><br>
     <input type="number" name="age" placeholder="Age"><br>
+    <input type="date" name="dob" placeholder="Date of Birth"><br>
+    <input type="text" name="gender" placeholder="Gender"><br>
+    <input type="text" name="patient_id" placeholder="Patient ID"><br>
+    <input type="datetime-local" name="visit_datetime" placeholder="Date & Time of Visit"><br>
+    <input type="text" name="phone" placeholder="Phone"><br>
+
+    <h3>Chief Complaint</h3>
+    <input type="text" name="chief_complaint" placeholder="Chief Complaint"><br>
+    <input type="text" name="complaint_duration" placeholder="Duration (e.g., 3 days)"><br>
+
+    <h3>History of Presenting Illness (HPI)</h3>
+    <input type="datetime-local" name="hpi_onset" placeholder="Onset"><br>
+    <textarea name="hpi_description" placeholder="Symptoms Description"></textarea><br>
+    <input type="number" name="pain_scale" min="1" max="10" placeholder="Pain Scale (1-10)"><br>
+    <input type="text" name="associated_symptoms" placeholder="Associated Symptoms (comma separated)"><br>
+
+    <h3>Past Medical History (PMH)</h3>
+    <input type="text" name="chronic_conditions" placeholder="Chronic Conditions (comma separated)"><br>
+    <textarea name="previous_admissions" placeholder="Previous Admissions"></textarea><br>
+    <textarea name="current_medications" placeholder="Current Medications"></textarea><br>
+    <textarea name="allergies" placeholder="Allergies"></textarea><br>
+
+    <h3>Past Surgical History (PSH)</h3>
+    <input type="text" name="surgery_name" placeholder="Surgery Name"><br>
+    <input type="date" name="surgery_date" placeholder="Surgery Date"><br>
+    <textarea name="surgery_notes" placeholder="Surgery Notes"></textarea><br>
+
+    <h3>Family History</h3>
+    <input type="text" name="family_history" placeholder="Family History (comma separated)"><br>
+
+    <h3>Social History</h3>
+    <label>Smoker: <input type="checkbox" name="smoker"></label><br>
+    <input type="text" name="alcohol_use" placeholder="Alcohol Use (frequency)"><br>
+    <input type="text" name="drug_use" placeholder="Drug Use"><br>
+    <input type="text" name="marital_status" placeholder="Marital Status"><br>
+    <input type="text" name="occupation" placeholder="Occupation"><br>
+    <input type="text" name="living_situation" placeholder="Living Situation"><br>
+
+    <h3>Economic History</h3>
+    <input type="text" name="employment_status" placeholder="Employment Status"><br>
+    <input type="text" name="insurance_type" placeholder="Insurance Type"><br>
+    <label>Financial Constraints: <input type="checkbox" name="financial_constraints"></label><br>
+    <textarea name="economic_notes" placeholder="Notes"></textarea><br>
+
+    <h3>Review of Systems (ROS)</h3>
+    <input type="text" name="ros_general" placeholder="General (fever, weight loss)"><br>
+    <input type="text" name="ros_respiratory" placeholder="Respiratory"><br>
+    <input type="text" name="ros_cardiovascular" placeholder="Cardiovascular"><br>
+    <input type="text" name="ros_gi" placeholder="GI"><br>
+    <input type="text" name="ros_neurological" placeholder="Neurological"><br>
 
     <button type="submit">Save</button>
 </form>
